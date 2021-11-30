@@ -16,15 +16,7 @@ namespace BookStore.Models
             Description = description;
             Amount = amount;
         }
-
-        public string ToBeRemovedBook { get; set; }
-
-
-        public Books(string removedBookTitle)
-        {
-            Title = removedBookTitle;
-        }
-    
+      
     }
 
 }
