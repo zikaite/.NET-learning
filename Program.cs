@@ -13,20 +13,28 @@ while (true)
     {
         Console.WriteLine("Please enter the title");
         var title = Console.ReadLine(); 
-        if (allBooks.Where(x => x.Title == title).Count() > 0)
-        {
-            Console.WriteLine("This book already in list");
-        }
-        
+        //if (allBooks.Where(x => x.Title == title).Count() > 0)
+
         Console.WriteLine("Please enter the description");
         var description = Console.ReadLine();
 
         Console.WriteLine("Please enter the amount of books");
         var amount = Convert.ToInt32(Console.ReadLine());
-
-        var books = new Books(title, description, amount);
-        allBooks.Add(books);
+        try
+        {
+            
+            var exists = false;
+            foreach (var book in allBooks) { if (book.Title == title) exists = true; };
+            if (!exists)
+                allBooks.Add(new Books(title, description, amount));
+            else Console.WriteLine("Book title already exists.");
         }
+        catch
+        {
+            Console.WriteLine("Amount must be a number..");
+        }
+    }
+        
 
     else if (command == "List")
     {
