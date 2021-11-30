@@ -21,12 +21,14 @@ while (true)
         Console.WriteLine("Please enter the amount of books");
         var amount = Convert.ToInt32(Console.ReadLine());
         try
-        {
-            
+        {            
             var exists = false;
-            foreach (var book in allBooks) { if (book.Title == title) exists = true; };
+            foreach (var book in allBooks) 
+        { 
+            if (book.Title == title) exists = true; 
+        }
             if (!exists)
-                allBooks.Add(new Books(title, description, amount));
+            allBooks.Add(new Books(title, description, amount));
             else Console.WriteLine("Book title already exists.");
         }
         catch
